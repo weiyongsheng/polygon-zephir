@@ -37,6 +37,22 @@ class Polygon
     }
 
     /**
+     * Contain all points of min rectangle points.
+     *
+     * @return array
+     */
+    public function rectanglePoints(){
+        var lats = array_column(this->points, 0);
+        var lngs = array_column(this->points, 1);
+        var min_lat = min(lats);
+        var min_lng = min(lngs);
+        var max_lat = max(lats);
+        var max_lng = max(lngs);
+
+        return [[min_lat, min_lng], [min_lat, max_lng], [max_lat, max_lng], [max_lat, min_lng]];
+    }
+
+    /**
      * @return []
      */
     public function getPoints()
